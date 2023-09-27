@@ -153,6 +153,11 @@ age = readline(prompt="Input your age: ")
 print(paste("My name is",name, "and I am",age ,"years old."))
 print(R.version.string)
 
+#OutPut
+#> print(paste("My name is",name, "and I am",age ,"years old."))
+#[1] "My name is Gilbert Bajacan and I am 20 years old."
+#> print(R.version.string)
+#[1] "R version 4.3.1 (2023-06-16)"
 
 
 
