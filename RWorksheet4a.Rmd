@@ -1,0 +1,78 @@
+---
+title: "RWorksheet-4a"
+output: pdf_document
+date: "2023-10-25"
+---
+#1
+```{r num1a}
+ShoeSize <- c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5)
+
+Height <- c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.0, 67.0, 71.0, 71.0)
+
+Gender <- c("F", "F", "F", "F", "M", "F", "F", "F","M", "F", "M", "F", "M","M")
+
+
+df <- data.frame(ShoeSize, Height, Gender)
+print(df)
+```
+
+```{r num1b}
+m_subset <- subset(df, Gender == "M", select = c("ShoeSize", "Gender"))
+f_subset <- subset(df, Gender == "F", select = c("ShoeSize", "Gender"))
+
+m_subset
+f_subset
+```
+
+```{r num1c}
+Shoesize <- mean(df$ShoeSize)
+height <- mean(df$Height)
+Shoesize
+height
+```
+
+```{r num1d}
+#Is a correlation between shoe size and height, it is not a strict one because these two factors are not interdependent
+```
+#2
+```{r num2}
+ months <- c("March", "April", "January", "November", "January", "September", "October", "September", "November", "August", "January", "November", "November", "February", "May", "August", "July", "December", "August", "August", "September", "November", "February", "April")
+
+factor_months <- factor(months)
+print(factor_months)
+
+```
+#3
+```{r num3}
+   summary_months <- summary(months)
+   summary_monthsVector <- summary(factor_months)
+   
+   summary_months
+   summary_monthsVector
+```
+
+#4
+```{r num4}
+directon_vector <- c("East", "West", "North")
+frequency_vector <- c(1, 4, 3)
+new_order_data <- factor(factor_data, levels = c("East", "West", "North"))
+print(new_order_data)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
