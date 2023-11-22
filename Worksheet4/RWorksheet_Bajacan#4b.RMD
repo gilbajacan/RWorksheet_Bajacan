@@ -29,14 +29,10 @@ for (i in 1:n) {
 }
 ```
 ``` {r num3}
-
 start <- as.numeric(readline("Enter the starting number: "))
-
 a <- 0
 b <- 1
-
 cat("Starting from", start, "up to 500:\n")
-
 repeat {
   if (a >= start) {
     cat(a, " ")
@@ -51,10 +47,10 @@ repeat {
 }
 ```
 ``` {r num4 A}
-table <- read.table(file = 'shoesize.csv', header = TRUE, sep = ',')
+table <- read.table(file = "shoesize.csv", header = TRUE, sep = ',')
 table
-
 ```
+
 
 ``` {r  A}
 head(table, n = 6)
@@ -100,9 +96,61 @@ legend("topright", legend=c("Male", "Female"), fill=bar_colors)
 expenses <- c(Food = 60, Electricity = 10, Savings = 5, Miscellaneous = 25)
 
 pie(expenses, labels = paste(names(expenses), "(", round((expenses/sum(expenses))*100), "%)"), 
-    col = c("red", "yellow", "white", "orange"),
+    col = c("green", "yellow", "purple", "orange"),
     main = "Monthly Expenses of Dela Cruz Family")
 
-legend("topright", legend = names(expenses), fill = c("red", "yellow", "white", "orange"))
+legend("topright", legend = names(expenses), fill = c("green", "yellow", "purple", "orange"))
 
 ```
+
+```{r num6 A}
+data(iris)
+str(iris)
+```
+
+```{r num6 B}
+mean_values <- c(mean(iris$Sepal.Length),
+mean(iris$Sepal.Width),
+mean(iris$Petal.Length),
+mean(iris$Petal.Width))
+```
+
+``` {r  num6C}
+pie(table(iris$Species), labels = c("Setosa", "Versicolor", "Virginica"), col = c("green", "orange", "purple"), main = "Species Distribution")
+
+```
+```{r num6D}
+setosa_data <- iris[iris$Species == "setosa", ]
+versicolor_data <- iris[iris$Species == "versicolor", ]
+virginica_data <- iris[iris$Species == "virginica", ]
+
+head(setosa_data, 6)
+head(versicolor_data, 6)
+head(virginica_data, 6)
+
+```
+```{r num6E}
+plot(x = iris$Sepal.Length[iris$Species == "setosa"], y = iris$Sepal.Width[iris$Species == "setosa"], pch = 16, col = "green", main = "Iris Dataset", xlab = "Sepal Length", ylab = "Sepal Width")
+points(x = iris$Sepal.Length[iris$Species == "versicolor"], y = iris$Sepal.Width[iris$Species == "versicolor"], pch = 17, col = "orange")
+points(x = iris$Sepal.Length[iris$Species == "virginica"], y = iris$Sepal.Width[iris$Species == "virginica"], pch = 18, col = "purple")
+
+```
+```{r num6F}
+# The color green has the longest length and width which is the Setosa.
+```
+
+```{r num7}
+
+my_data <- read_xlsx("alexa_file.xlsx")
+my_data
+
+
+
+```
+```{r num7A}
+
+```
+
+
+
+
