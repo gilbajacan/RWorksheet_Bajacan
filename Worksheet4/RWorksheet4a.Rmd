@@ -1,6 +1,5 @@
 ---
 title: "RWorksheet-4a"
-author: "Gilbert Bajacan"
 output: pdf_document
 date: "2023-10-25"
 ---
