@@ -4,7 +4,7 @@ author: "Gilbert Bajacan"
 output: pdf_document
 date: "2023-11-08"
 ---
-
+#1
 ``` {r num1}
 
 vectorA <- c(1, 2, 3, 4, 5)
@@ -17,7 +17,7 @@ for (i in 1:5) {
 }
 matrixA
 ```
-
+#2
 ``` {r num2}
 n <- 5  # The number of rows
 
@@ -28,46 +28,52 @@ for (i in 1:n) {
   cat("\n")
 }
 ```
+#3
 ``` {r num3}
-start <- as.numeric(readline("Enter the starting number: "))
+input_number <- as.numeric(readline("Enter a number to start the Fibonacci sequence: "))
+
+assume_number <- 0
 a <- 0
 b <- 1
-cat("Starting from", start, "up to 500:\n")
+
 repeat {
-  if (a >= start) {
-    cat(a, " ")
-  }
-  c <- a + b
-  a <- b
-  b <- c
 
   if (a > 500) {
     break
   }
+  
+
+  if (a >= assume_number) {
+    cat(a, " ")
+  }
+  
+  temp <- a + b
+  a <- b
+  b <- temp
 }
-```
-``` {r num4 A}
-table <- read.table(file = "shoesize.csv", header = TRUE, sep = ',')
-table
-```
 
+cat("\n")
 
-``` {r  A}
-head(table, n = 6)
 ```
 
-
-``` {r num4 B}
-male_subset <- subset(table, Gender == "M")
-female_subset <- subset(table, Gender == "F")
-male_count <- nrow(male_subset)
-female_count <- nrow(female_subset)
-cat("Number of Male observations:", male_count, "\n")
-cat("Number of Female observations:", female_count, "\n")
-#Number of Male observations: 14 
-#Number of Female observations: 14 
+#4A
+``` {r num4a}
+shoesize <-  read.csv("Shoe_sizes.csv")
+shoesize
+shoes <- shoesize[c(1:6),]
+shoes
 ```
-
+#4B
+``` {r num4b}
+female_data <- subset(shoesize, Gender == "F")
+female_data
+male_data <- subset(shoesize, Gender == "M")
+male_data
+nrow(female_data)
+nrow(male_data)
+#They have both 14 observations
+```
+#4C
 
 ``` {r  C}
 # Create a data frame with the provided data
@@ -90,7 +96,7 @@ barplot(gender_counts, main="Number of Males and Females", xlab="Sex", ylab="Cou
 legend("topright", legend=c("Male", "Female"), fill=bar_colors)
 
 ``` 
-
+#5
 ``` {r  num5}
 
 expenses <- c(Food = 60, Electricity = 10, Savings = 5, Miscellaneous = 25)
@@ -102,23 +108,22 @@ pie(expenses, labels = paste(names(expenses), "(", round((expenses/sum(expenses)
 legend("topright", legend = names(expenses), fill = c("green", "yellow", "purple", "orange"))
 
 ```
-
+#6A
 ```{r num6 A}
 data(iris)
 str(iris)
 ```
-
+#6B
 ```{r num6 B}
-mean_values <- c(mean(iris$Sepal.Length),
-mean(iris$Sepal.Width),
-mean(iris$Petal.Length),
-mean(iris$Petal.Width))
+MeanIris<- colMeans(iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")])
+print(MeanIris)
 ```
-
+#6C
 ``` {r  num6C}
 pie(table(iris$Species), labels = c("Setosa", "Versicolor", "Virginica"), col = c("green", "orange", "purple"), main = "Species Distribution")
 
 ```
+#6D
 ```{r num6D}
 setosa_data <- iris[iris$Species == "setosa", ]
 versicolor_data <- iris[iris$Species == "versicolor", ]
@@ -129,27 +134,25 @@ head(versicolor_data, 6)
 head(virginica_data, 6)
 
 ```
+#6E
 ```{r num6E}
 plot(x = iris$Sepal.Length[iris$Species == "setosa"], y = iris$Sepal.Width[iris$Species == "setosa"], pch = 16, col = "green", main = "Iris Dataset", xlab = "Sepal Length", ylab = "Sepal Width")
 points(x = iris$Sepal.Length[iris$Species == "versicolor"], y = iris$Sepal.Width[iris$Species == "versicolor"], pch = 17, col = "orange")
 points(x = iris$Sepal.Length[iris$Species == "virginica"], y = iris$Sepal.Width[iris$Species == "virginica"], pch = 18, col = "purple")
 
 ```
+#6F
 ```{r num6F}
 # The color green has the longest length and width which is the Setosa.
 ```
+#7A
 
-```{r num7}
-
-my_data <- read_xlsx("alexa_file.xlsx")
-my_data
-
-
-
+```{r num7a}
+library(readxl)
+alexa_file <- read_excel("alexa_file.xlsx")
+alexa_file
 ```
-```{r num7A}
 
-```
 
 
 
